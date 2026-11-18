@@ -3,7 +3,6 @@ from datetime import datetime
 
 
 def _parse_data_hora(texto_data: str) -> datetime:
-    """Converte strings de data/hora suportando os formatos ISO e brasileiro."""
     formatos = ("%Y-%m-%d %H:%M:%S", "%d-%m-%Y %H:%M:%S")
     for fmt in formatos:
         try:
@@ -16,14 +15,6 @@ def _parse_data_hora(texto_data: str) -> datetime:
 def carregar_temperaturas(
     caminho_csv: str,
 ) -> tuple[dict[str, dict[str, list[float]]], datetime]:
-    """
-    Lê o arquivo temperaturas.csv e organiza as séries por servidor.
-    Converte os horários em horas decorridas (t) a partir da medição inicial.
-
-    Retorna:
-        - dados_servidores: {'SRV-01': {'t': [...], 'temp': [...]}, ...}
-        - referencia_inicial: objeto datetime correspondente a t = 0.0
-    """
     registros_brutos = []
 
     with open(caminho_csv, mode="r", encoding="utf-8") as arquivo:
@@ -52,10 +43,6 @@ def carregar_temperaturas(
 
 
 def carregar_incidentes(caminho_log: str, referencia_inicial: datetime) -> list[dict]:
-    """
-    Lê o arquivo incidentes.log, corrige a inconsistência de formato na data
-    e calcula o tempo relativo (t) em horas em relação à referencia_inicial.
-    """
     incidentes = []
 
     with open(caminho_log, mode="r", encoding="utf-8") as arquivo:
@@ -64,7 +51,6 @@ def carregar_incidentes(caminho_log: str, referencia_inicial: datetime) -> list[
             if not linha_limpa:
                 continue
 
-            # Os 19 primeiros caracteres contêm 'YYYY-MM-DD HH:MM:SS' ou 'DD-MM-YYYY HH:MM:SS'
             parte_data = linha_limpa[:19]
             mensagem = linha_limpa[20:].strip()
 
