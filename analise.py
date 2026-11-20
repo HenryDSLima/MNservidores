@@ -3,6 +3,16 @@ from lagrange import lagrange, lagrange_local, pontos_do_servidor
 
 def executar_analise_servidores(dados_servidores, incidentes):
     relatorio = []
+    relatorio_geral = {
+        "SRV-01": [],
+        "SRV-02": [],
+        "SRV-03": []
+    }
+
+    # pontos_serv1 = pontos_do_servidor(dados_servidores, "SRV-01")
+    # pontos_serv2 = pontos_do_servidor(dados_servidores, "SRV-02")
+    # pontos_serv3 = pontos_do_servidor(dados_servidores, "SRV-03")
+
     limite_critico = 80.0
 
     servidores = list(dados_servidores.keys())
@@ -20,6 +30,9 @@ def executar_analise_servidores(dados_servidores, incidentes):
 
             t_local_g3 = lagrange_local(pontos, t_inc, grau=3)
 
+            pontos.append((t_inc, t_local_g3))
+            pontos.sort(key=lambda p:p[0])
+
             status = "NORMAL"
             if t_global >= limite_critico or t_local_g3 >= limite_critico:
                 status = "CRÍTICO (Ultrapassou 80°C)"
@@ -35,4 +48,10 @@ def executar_analise_servidores(dados_servidores, incidentes):
                 "status": status
             })
 
-    return relatorio
+            for ponto in pontos:
+                if ponto not in relatorio_geral[srv]:
+                    relatorio_geral[srv].append(ponto)
+                    relatorio_geral[srv].sort(key=lambda p:p[0])
+                    
+
+    return relatorio, relatorio_geral
