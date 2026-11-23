@@ -1,4 +1,4 @@
-from lagrange import lagrange, lagrange_local, pontos_do_servidor
+from .lagrange import lagrange, lagrange_local, pontos_do_servidor
 
 
 def executar_analise_servidores(dados_servidores, incidentes):

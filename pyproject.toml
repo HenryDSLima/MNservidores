@@ -1,10 +1,21 @@
 [project]
 name = "mnservidores"
 version = "0.1.0"
+description = "Pacote Python de métodos numéricos (Lagrange e Newton) para investigação de degradação de desempenho em servidores — Projeto Métodos Numéricos 2º GQ."
+readme = "README.md"
 requires-python = ">=3.11"
+authors = [
+    { name = "Carlos Gabryell" },
+    { name = "Diego Kauã" },
+    { name = "Matheus" },
+    { name = "Lucas Vinícius" },
+    { name = "Moisés Freire" },
+    { name = "Henry Lima" },
+]
 dependencies = [
     "matplotlib",
-    "ipykernel"
+    "numpy",
+    "ipykernel",
 ]
 
 [build-system]
@@ -12,4 +23,4 @@ requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = []
+packages = ["pacote_servidores"]
