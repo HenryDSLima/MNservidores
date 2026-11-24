@@ -14,7 +14,7 @@ O repositório organiza os métodos numéricos implementados do zero em Python p
 | **Diego Kauã** | Interpolação Polinomial de Lagrange (global e local grau 3) | [`pacote_servidores/lagrange.py`](pacote_servidores/lagrange.py) |
 | **Matheus** | Interpolação de Newton e Tabela de Diferenças Divididas | [`pacote_servidores/newton.py`](pacote_servidores/newton.py) |
 | **Lucas Vinícius** | Cálculos nos incidentes, limite de 80 °C e análise de precisão (Itens a e b) | [`pacote_servidores/analise.py`](pacote_servidores/analise.py), [`notebook.ipynb`](notebook.ipynb) |
-| **Moisés Freire** | Gráficos contínuos e diagnóstico técnico de infraestrutura (Itens c e d) | [`pacote_servidores/graficos.py`](pacote_servidores/graficos.py), [`notebook.ipynb`](notebook.ipynb) |
+| **Moisés Freire** | Notebook, gráficos contínuos e diagnóstico técnico de infraestrutura (Itens c e d) | [`notebook.ipynb`](notebook.ipynb) |
 | **Henry Lima** | Empacotamento (`pyproject.toml`), documentação (`README.md`), validação e apresentação PDF | [`pyproject.toml`](pyproject.toml), [`README.md`](README.md), [`apresentacao_problema2_servidores.pdf`](apresentacao_problema2_servidores.pdf) |
 
 ---
@@ -25,7 +25,7 @@ O repositório organiza os métodos numéricos implementados do zero em Python p
 MNservidores/
 ├── pyproject.toml                          # Configuração para instalação via pip
 ├── README.md                               # Instruções de instalação e uso
-├── notebook.ipynb                          # Notebook que importa o pacote para resolver o problema
+├── notebook.ipynb                          # Notebook que importa o pacote (Moisés Freire — itens a–d)
 ├── incidentes.log                          # Arquivo bruto de registro de incidentes
 ├── temperaturas.csv                        # Arquivo bruto de medições horárias (14h às 23h)
 ├── apresentacao_problema2_servidores.pdf   # Slides da apresentação (fundo branco para projeção)
@@ -34,8 +34,7 @@ MNservidores/
     ├── dados.py                            # Leitura e tratamento de temperaturas.csv e incidentes.log
     ├── lagrange.py                         # Polinômios básicos Lk(x), Lagrange global e local
     ├── newton.py                           # Diferenças Divididas e polinômio de Newton
-    ├── analise.py                          # Execução da análise nos incidentes e verificação de 80 °C
-    └── graficos.py                         # Módulo reservado para rotinas gráficas
+    └── analise.py                          # Execução da análise nos incidentes e verificação de 80 °C
 ```
 
 ---
