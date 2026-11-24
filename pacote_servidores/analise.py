@@ -23,8 +23,6 @@ def executar_analise_servidores(dados_servidores, incidentes):
 
         for srv in servidores:
             pontos = pontos_do_servidor(dados_servidores, srv)
-            xs = [p[0] for p in pontos]
-            ys = [p[1] for p in pontos]
 
             t_global = lagrange(pontos, t_inc)
 
